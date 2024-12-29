@@ -8,12 +8,11 @@ let
   inherit (import ./variables.nix) gitUsername gitEmail;
 in
 {
-  # Home Manager Settings
+  # home manager settings
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
   home.stateVersion = "23.11";
 
-  # Import Program Configurations
   imports = [
     ../../config/emoji.nix
     ../../config/fastfetch
@@ -27,7 +26,6 @@ in
     ../../config/fastfetch
   ];
 
-  # Place Files Inside Home Directory
   home.file."Pictures/Wallpapers" = {
     source = ../../config/wallpapers;
     recursive = true;
@@ -96,7 +94,7 @@ in
   };
 
 
-  # Scripts
+  # scripts
   home.packages = [
     (import ../../scripts/emopicker9000.nix { inherit pkgs; })
     (import ../../scripts/task-waybar.nix { inherit pkgs; })
@@ -183,6 +181,7 @@ in
           ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
           v = "nvim";
           cat = "bat";
+          ls = "eza --icons";
           ll = "eza -lh --icons --grid --group-directories-first";
           la = "eza -lah --icons --grid --group-directories-first";
            ".." = "cd ..";
