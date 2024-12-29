@@ -322,7 +322,6 @@ in
     lazygit
     nodejs
     gdu
-    python3
     luarocks
     cargo
     rustup
