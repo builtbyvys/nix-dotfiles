@@ -34,7 +34,6 @@ in
         mpv
         foliate
         scrcpy
-        bottles-unwrapped
         opentabletdriver
         prismlauncher
         flameshot
