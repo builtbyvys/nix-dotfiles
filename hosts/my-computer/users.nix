@@ -42,6 +42,7 @@ in
         zellij
         r2modman
         discord
+        safeeyes
       ];
     };
   };
