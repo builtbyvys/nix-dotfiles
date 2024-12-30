@@ -43,6 +43,7 @@ in
         r2modman
         discord
         safeeyes
+        stremio
       ];
     };
   };
