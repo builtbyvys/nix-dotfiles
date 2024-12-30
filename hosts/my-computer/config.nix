@@ -204,6 +204,7 @@ in
     firejail.enable = true;
     mtr.enable = true;
     adb.enable = true;
+    nix-ld.enable = true;    
     gamemode = {
       settings.general.inhibit_screensaver = 0;
       enable = true;
