@@ -431,7 +431,7 @@ in
   services.blueman.enable = true;
 
   # for audiosource, please enter a nix-shell with the pulseaudio pkg
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
 
   # Security / Polkit
   security.rtkit.enable = true;
