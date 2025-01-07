@@ -358,6 +358,9 @@ in
         variant = "";
       };
     };
+    udev.extraRules = ''
+      SUBSYSTEM=="usb", ATTRS{idVendor}=="373b", ATTRS{idProduct}=="1053", MODE="0666", GROUP="users"
+    ''
     greetd = {
       enable = true;
       vt = 3;
