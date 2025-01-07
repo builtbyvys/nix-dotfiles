@@ -323,6 +323,7 @@ in
     xen
     qemu_xen
     neovim-unwrapped
+    libusb1
   ];
 
   fonts = {
