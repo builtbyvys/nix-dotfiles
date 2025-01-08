@@ -19,6 +19,7 @@ in
     ../../modules/vm-guest-services.nix
     ../../modules/local-hardware-clock.nix
     ../../modules/sunshine.nix
+    ../../config/kde.nix
     inputs.spicetify-nix.nixosModules.default
   ];
 
@@ -370,13 +371,9 @@ in
           user = username;
           command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
         };
-        kde_x11_session = {
-          user = username;
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd startplasma-x11";
-        };
-        kde_wayland_session = {
-          user = username;
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd startplasma-wayland";
+      kde_session = {
+        user = username;
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd plasma";
         };
       };
     };
