@@ -353,7 +353,6 @@ in
 
   services = {
     xserver = {
-      enable = false;
       xkb = {
         layout = "${keyboardLayout}";
         variant = "";
