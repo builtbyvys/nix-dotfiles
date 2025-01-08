@@ -307,7 +307,6 @@ in
     imv
     pavucontrol
     tree
-    greetd.tuigreet
     obs-studio
     rclone
     gcc
@@ -363,20 +362,7 @@ in
     udev.extraRules = ''
       SUBSYSTEM=="usb", ATTRS{idVendor}=="373b", ATTRS{idProduct}=="1053", MODE="0666", GROUP="users"
     '';
-    greetd = {
-      enable = true;
-      vt = 3;
-      settings = {
-        default_session = {
-          user = username;
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
-        };
-      kde_session = {
-        user = username;
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd plasma";
-        };
-      };
-    };
+    services.displayManager.sddm.enable = true;
     smartd = {
       enable = false;
       autodetect = true;
