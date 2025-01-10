@@ -44,6 +44,7 @@ in
         discord
         safeeyes
         stremio
+        osu-lazer-bin
       ];
     };
   };
