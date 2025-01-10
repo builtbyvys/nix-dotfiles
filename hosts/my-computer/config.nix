@@ -19,7 +19,6 @@ in
     ../../modules/vm-guest-services.nix
     ../../modules/local-hardware-clock.nix
     ../../modules/sunshine.nix
-    ../../config/kde.nix
     inputs.spicetify-nix.nixosModules.default
   ];
 
