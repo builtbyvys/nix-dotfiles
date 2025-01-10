@@ -9,5 +9,5 @@ you can very quickly get setup (please don't use this) by running the following 
 ```bash
 git clone https://github.com/builtbyvys/nix-dotfiles.git
 cd nix-dotfiles.git
-nix-switch .#default blah blah blah FUCK
+nixos-rebuild switch --flake .#my-computer
 ```
