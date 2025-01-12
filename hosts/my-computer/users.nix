@@ -45,6 +45,8 @@ in
         safeeyes
         stremio
         osu-lazer-bin
+        lutris
+        protonup-qt
       ];
     };
   };
