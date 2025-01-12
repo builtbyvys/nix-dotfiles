@@ -22,7 +22,7 @@ in
         "adbusers"
         "gamemode"
       ];
-      shell = pkgs.bash;
+      shell = pkgs.fish;
       ignoreShellProgramCheck = true;
       packages = with pkgs; [
         brave
