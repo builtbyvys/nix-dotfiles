@@ -133,6 +133,9 @@ with lib;
           bind = ${modifier},S,exec,screenshootin
           bind = ${modifier},D,exec,discord
           bind = ${modifier},O,exec,obs
+          bind = ${modifier},page_up,exec,obs-cmd recording toggle
+          bind = ${modifier},page_down,exec,obs-cmd replay save
+          bind = ${modifier},end,exec,obs-cmd replay toggle
           bind = ${modifier},C,exec,hyprpicker -a
           bind = ${modifier},G,exec,gimp
           bind = ${modifier}SHIFT,G,exec,godot4

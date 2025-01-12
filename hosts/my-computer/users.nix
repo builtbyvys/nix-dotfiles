@@ -47,6 +47,7 @@ in
         osu-lazer-bin
         lutris
         protonup-qt
+        obs-cmd
       ];
     };
   };
