@@ -48,6 +48,7 @@ in
         lutris
         protonup-qt
         obs-cmd
+        mangohud
       ];
     };
   };
