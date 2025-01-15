@@ -49,6 +49,8 @@ in
         protonup-qt
         obs-cmd
         mangohud
+        pnpm
+        nodejs
       ];
     };
   };
