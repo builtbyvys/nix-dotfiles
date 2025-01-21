@@ -51,6 +51,7 @@ in
         mangohud
         pnpm
         nodejs
+        shadps4
       ];
     };
   };
