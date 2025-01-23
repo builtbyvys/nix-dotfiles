@@ -428,6 +428,7 @@ in
     extraBackends = [ pkgs.sane-airscan ];
     disabledDefaultBackends = [ "escl" ];
   };
+  hardware.opentabletdriver.enable = true;
 
 
   # bluetooth support

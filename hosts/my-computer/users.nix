@@ -34,7 +34,6 @@ in
         mpv
         foliate
         scrcpy
-        opentabletdriver
         prismlauncher
         flameshot
         hyprshade
