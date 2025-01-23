@@ -397,6 +397,7 @@ in
       interfaceName = "userspace-networking";
       extraSetFlags = ["--operator=${username}" "--ssh"];
     };
+    cloudflare-warp.enable = true;
     syncthing = {
       enable = true;
       user = "${username}";
