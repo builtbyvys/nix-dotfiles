@@ -6,6 +6,15 @@ let
     cudaSupport = true;
     stdenv = pkgs.cudaPackages.backendStdenv;
   };
+  patched-pkgs = pkgs.applyPatches {
+    src = pkgs.path;
+    patches = [
+      (pkgs.fetchpatch {
+        url = "https://github.com/NixOS/nixpkgs/commit/2364607ec91c0aa8f5028aead070ead6da27007b.patch";
+        sha256 = "sha256-0j0g2br1xc0pnx4hilf0663ghvrhgri80y8zxf72zik498bbh2v3";
+      })
+    ];
+  };
 in
 {
   options.programs.sunshine = with lib; {
