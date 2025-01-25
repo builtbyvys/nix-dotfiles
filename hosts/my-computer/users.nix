@@ -51,6 +51,7 @@ in
         pnpm
         nodejs
         shadps4
+        qemu
       ];
     };
   };
