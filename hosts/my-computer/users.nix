@@ -28,7 +28,7 @@ in
         brave
         vesktop
         keepassxc
-        chatterino2
+        chatterino7
         streamlink
         openrgb
         mpv
