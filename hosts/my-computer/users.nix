@@ -52,6 +52,7 @@ in
         nodejs
         shadps4
         qemu
+        graalvm-ce
       ];
     };
   };
