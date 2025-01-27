@@ -114,6 +114,7 @@ in
   ];
 
   services = {
+    kdeconnect.enable = true;
     hypridle = {
       settings = {
         general = {
