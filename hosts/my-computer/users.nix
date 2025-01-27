@@ -53,6 +53,8 @@ in
         shadps4
         qemu
         graalvm-ce
+        rustc
+        rust-analyzer
       ];
     };
   };
