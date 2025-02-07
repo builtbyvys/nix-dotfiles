@@ -55,6 +55,7 @@ in
         graalvm-ce
         rustc
         rust-analyzer
+        figma-linux
       ];
     };
   };

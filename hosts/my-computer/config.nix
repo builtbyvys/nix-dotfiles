@@ -319,8 +319,6 @@ in
     luarocks
     cargo
     rustup
-    xen
-    qemu_xen
     neovim-unwrapped
     libusb1
     gnumake
