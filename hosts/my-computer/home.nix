@@ -169,6 +169,7 @@ in
      fish = {
         enable = true;
         shellInit = ''
+          export PATH="$HOME/.cargo/bin:$PATH"
           fastfetch
         '';
         interactiveShellInit = ''
