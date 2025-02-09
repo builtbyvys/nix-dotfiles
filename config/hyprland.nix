@@ -130,7 +130,6 @@ with lib;
           bind = ${modifier},W,exec,google-chrome-unstable
           bind = ${modifier},E,exec,emopicker9000
           bind = ${modifier},S,exec,flameshot gui
-          bind = Print,exec,flameshot screen
           bind = ${modifier},D,exec,vesktop
           bind = ${modifier},O,exec,obs
           bind = ${modifier},page_up,exec,obs-cmd recording toggle
