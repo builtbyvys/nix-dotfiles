@@ -50,6 +50,7 @@ in
   };
   stylix = {
     enable = true;
+    image = ../../config/wallpapers/desolate-city.jpg; # required, but base16Scheme takes priority because it's set
     base16Scheme = ../../themes/catppuccin.yaml;
     polarity = "dark";
 
