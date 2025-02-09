@@ -8,7 +8,6 @@
 
 let
   inherit (import ../hosts/${host}/variables.nix)
-    browser
     terminal
     extraMonitorSettings
     keyboardLayout
@@ -80,7 +79,7 @@ with lib;
           windowrule = float, zoom
           windowrulev2 = stayfocused, title:^()$,class:^(steam)$
           windowrulev2 = minsize 1 1, title:^()$,class:^(steam)$
-          windowrulev2 = opacity 0.9 0.7, class:^(Brave)$
+          windowrulev2 = opacity 0.9 0.7, class:^(chrome)$
           windowrulev2 = opacity 0.9 0.7, class:^(thunar)$
           gestures {
             workspace_swipe = true
@@ -128,10 +127,11 @@ with lib;
           bind = ${modifier}SHIFT,W,exec,web-search
           bind = ${modifier}ALT,W,exec,wallsetter
           bind = ${modifier}SHIFT,N,exec,swaync-client -rs
-          bind = ${modifier},W,exec,${browser}
+          bind = ${modifier},W,exec,google-chrome-unstable
           bind = ${modifier},E,exec,emopicker9000
-          bind = ${modifier},S,exec,screenshootin
-          bind = ${modifier},D,exec,discord
+          bind = ${modifier},S,exec,flameshot gui
+          bind = Print,exec,flameshot screen
+          bind = ${modifier},D,exec,vesktop
           bind = ${modifier},O,exec,obs
           bind = ${modifier},page_up,exec,obs-cmd recording toggle
           bind = ${modifier},page_down,exec,obs-cmd replay save
