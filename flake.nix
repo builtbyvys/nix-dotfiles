@@ -15,7 +15,11 @@
       url = "github:VonHeikemen/fine-cmdline.nvim";
       flake = false;
     };
-    flatpak.url = "github:GermanBread/declarative-flatpak/stable-v3"; 
+    flatpak.url = "github:GermanBread/declarative-flatpak/stable-v3";
+    browser-previews = {
+      url = "github:nix-community/browser-previews";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, home-manager, lanzaboote, flatpak, ... }@inputs: let
