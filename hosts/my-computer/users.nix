@@ -1,6 +1,7 @@
 {
   pkgs,
   username,
+  inputs,
   ...
 }:
 
@@ -55,7 +56,7 @@ in
         graalvm-ce
         rustc
         rust-analyzer
-        figma-linux
+        inputs.browser-previews.packages.${system}.google-chrome-dev
       ];
     };
   };
