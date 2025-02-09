@@ -50,10 +50,28 @@ in
   };
   stylix = {
     enable = true;
-    image = ../../config/wallpapers/desolate-city.jpg; # required, but base16Scheme takes priority because it's set
-    base16Scheme = ../../themes/catppuccin.yaml;
+    image = ../../config/wallpapers/blue-kaiju.png;
+    base16Scheme = {
+      scheme = "Catppuccin Mocha";
+      author = "https://github.com/catppuccin/catppuccin";
+      base00 = "1e1e2e";
+      base01 = "181825";
+      base02 = "313244";
+      base03 = "45475a";
+      base04 = "585b70";
+      base05 = "cdd6f4";
+      base06 = "f5e0dc";
+      base07 = "b4befe";
+      base08 = "f38ba8";
+      base09 = "fab387";
+      base0A = "f9e2af";
+      base0B = "a6e3a1";
+      base0C = "94e2d5";
+      base0D = "89b4fa";
+      base0E = "cba6f7";
+      base0F = "f2cdcd";
+    };
     polarity = "dark";
-
     opacity.terminal = 0.8;
     cursor.package = pkgs.bibata-cursors;
     cursor.name = "Bibata-Modern-Ice";
