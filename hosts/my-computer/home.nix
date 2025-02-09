@@ -72,9 +72,9 @@ in
   };
 
   # idk i forgot but you work
-  stylix.targets.waybar.enable = true;
-  stylix.targets.rofi.enable = true;
-  stylix.targets.hyprland.enable = true;
+  stylix.targets.waybar.enable = false;
+  stylix.targets.rofi.enable = false;
+  stylix.targets.hyprland.enable = false;
 
   gtk = {
     iconTheme = {
