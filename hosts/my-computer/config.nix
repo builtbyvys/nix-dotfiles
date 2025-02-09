@@ -48,30 +48,11 @@ in
     };
     plymouth.enable = true;
   };
-  #TODO: in some apps this looks very ugly, maybe use some application that fetches 
-  #      wallpapers and refactor for faster styling configuration? ..or just use a theme
   stylix = {
     enable = true;
-    image = ../../config/wallpapers/beautifulmountainscape.jpg;
-    # base16Scheme = {
-    #   base00 = "232136";
-    #   base01 = "2a273f";
-    #   base02 = "393552";
-    #   base03 = "6e6a86";
-    #   base04 = "908caa";
-    #   base05 = "e0def4";
-    #   base06 = "e0def4";
-    #   base07 = "56526e";
-    #   base08 = "eb6f92";
-    #   base09 = "f6c177";
-    #   base0A = "ea9a97";
-    #   base0B = "3e8fb0";
-    #   base0C = "9ccfd8";
-    #   base0D = "c4a7e7";
-    #   base0E = "f6c177";
-    #   base0F = "56526e";
-    # };
+    base16Scheme = ../../themes/catppuccin.yaml;
     polarity = "dark";
+
     opacity.terminal = 0.8;
     cursor.package = pkgs.bibata-cursors;
     cursor.name = "Bibata-Modern-Ice";
@@ -306,7 +287,6 @@ in
     imv
     pavucontrol
     tree
-    obs-studio
     rclone
     gcc
     clang
@@ -315,7 +295,7 @@ in
     sbctl
     lazygit
     nodejs
-    gdu
+    gd
     luarocks
     cargo
     rustup
@@ -323,8 +303,12 @@ in
     libusb1
     gnumake
     greetd.tuigreet
+    (pkgs.wrapOBS {
+      plugins = [ pkgs.obs-studio-plugins.obs-vkcapture ];
+    })
+    libvdpau-va-gl
   ];
-
+ 
   fonts = {
     packages = with pkgs; [
       noto-fonts-emoji
