@@ -58,6 +58,7 @@ in
         rust-analyzer
         inputs.browser-previews.packages.${system}.google-chrome-dev
         slack
+        protontricks
       ];
     };
   };
