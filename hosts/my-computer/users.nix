@@ -59,6 +59,8 @@ in
         inputs.browser-previews.packages.${system}.google-chrome-dev
         slack
         protontricks
+        exodus
+        signal-desktop
       ];
     };
   };
