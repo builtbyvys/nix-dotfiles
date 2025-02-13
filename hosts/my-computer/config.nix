@@ -29,6 +29,7 @@ in
     # https://wiki.archlinux.org/title/Gaming#Increase_vm.max_map_count
     kernel.sysctl = {
       "vm.max_map_count" = 2147483642;
+      "net.ipv4.conf.tornet.route_localnet" = 1;
     };
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
@@ -85,9 +86,44 @@ in
   programs.sunshine.enable = true;
 
   # networking options
-  networking.networkmanager.enable = true;
-  networking.hostName = host;
-  networking.timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
+  networking = {
+    useNetworkd = true;
+    networkmanager.enable = true;
+    hostName = host;
+    timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
+
+    bridges.tornet.interfaces = [];
+    nftables = {
+      enable = true;
+      ruleset = ''
+        table ip nat {
+          chain PREROUTING {
+            type nat hook prerouting priority dstnat; policy accept;
+            iifname "tornet" meta l4proto tcp dnat to 127.0.0.1:9040;
+            iifname "tornet" udp dport 53 dnat to 127.0.0.1:5353;
+          }
+        }
+      '';
+    };
+    nat = {
+      internalInterfaces = [ "tornet" ];
+      forwardPorts = [
+        {
+          destination = "127.0.0.1:5353";
+          proto = "udp";
+          sourcePort = 53;
+        }
+      ];
+    };
+    firewall = {
+      enable = true;
+      interfaces.tornet = {
+        allowedTCPPorts = [ 9040 ];
+        allowedUDPPorts = [ 5353 ];
+      };
+    };
+  };
+
 
   # timezone
   time.timeZone = "America/New_York";
@@ -181,7 +217,18 @@ in
     dconf.enable = true;
     seahorse.enable = true;
     fuse.userAllowOther = true;
-    firejail.enable = true;
+    firejail = {
+      enable = true;
+      wrappedBinaries = {
+        signal-desktop = {
+          # Here we override the Signal Desktop launcher to include the necessary flags.
+          executable = "${pkgs.signal-desktop}/bin/signal-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland";
+          profile = "${pkgs.firejail}/etc/firejail/signal-desktop.profile";
+          # Pass both the GTK theme and, importantly, the network namespace flag.
+          extraArgs = [ "--env=GTK_THEME=Adwaita:dark" "--net=tornet" ];
+        };
+      };
+    };
     mtr.enable = true;
     adb.enable = true;
     nix-ld.enable = true;    
@@ -356,6 +403,15 @@ in
         };
       };
     };
+    tor = {
+      enable = true;
+      openFirewall = true;
+      settings = {
+        TransPort = [ 9040 ];
+        DNSPort   = 5353;
+        VirtualAddrNetworkIPv4 = "172.30.0.0/16";
+      };
+    };
     smartd = {
       enable = false;
       autodetect = true;
@@ -402,6 +458,18 @@ in
     script = ''
       flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     '';
+  };
+  systemd.network = {
+    enable = true;
+    networks.tornet = {
+      matchConfig.Name = "tornet";
+      DHCP = "no";
+      networkConfig = {
+        ConfigureWithoutCarrier = true;
+        Address = "10.100.100.1/24";
+      };
+      linkConfig.ActivationPolicy = "always-up";
+    };
   };
   hardware.sane = {
     enable = true;
