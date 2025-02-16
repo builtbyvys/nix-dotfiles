@@ -49,7 +49,7 @@
             home-manager.extraSpecialArgs = {
               inherit username inputs host;
             };
-            home-manager.useGlobalPkgs = true;
+            home-manager.useGlobalPkgs = false;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
             home-manager.users.${username} = import ./hosts/${host}/home.nix;
