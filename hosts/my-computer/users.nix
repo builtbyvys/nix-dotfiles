@@ -61,6 +61,8 @@ in
         protontricks
         exodus
         signal-desktop
+        qpwgraph
+        kicad
       ];
     };
   };
