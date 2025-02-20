@@ -32,7 +32,6 @@ in
         chatterino7
         streamlink
         openrgb
-        mpv
         foliate
         scrcpy
         prismlauncher
@@ -63,6 +62,7 @@ in
         signal-desktop
         qpwgraph
         kicad
+        jellyfin-mpv-shim
       ];
     };
   };

@@ -1,14 +1,12 @@
-{
-  pkgs,
-  username,
-  host,
-  ...
+{ pkgs
+, username
+, host
+, ...
 }:
 let
   inherit (import ./variables.nix) gitUsername gitEmail;
 in
 {
-  # home manager settings
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
   home.stateVersion = "23.11";
@@ -23,19 +21,21 @@ in
     ../../config/swaync.nix
     ../../config/waybar.nix
     ../../config/wlogout.nix
-    ../../config/fastfetch
   ];
 
   home.file."Pictures/Wallpapers" = {
     source = ../../config/wallpapers;
     recursive = true;
   };
+
   home.file.".config/wlogout/icons" = {
     source = ../../config/wlogout;
     recursive = true;
   };
+
   home.file.".face.icon".source = ../../config/face.jpg;
   home.file.".config/face.jpg".source = ../../config/face.jpg;
+
   home.file.".config/swappy/config".text = ''
     [Default]
     save_dir=/home/${username}/Pictures/Screenshots
@@ -49,14 +49,6 @@ in
     fill_shape=false
   '';
 
-  # Install & Configure Git
-  programs.git = {
-    enable = true;
-    userName = "${gitUsername}";
-    userEmail = "${gitEmail}";
-  };
-
-  # Create XDG Dirs
   xdg = {
     userDirs = {
       enable = true;
@@ -71,7 +63,6 @@ in
     };
   };
 
-  # idk i forgot but you work
   stylix.targets.waybar.enable = false;
   stylix.targets.rofi.enable = false;
   stylix.targets.hyprland.enable = false;
@@ -88,13 +79,17 @@ in
       gtk-application-prefer-dark-theme = 1;
     };
   };
+
   qt = {
     enable = true;
   };
 
-
-  # scripts
   home.packages = [
+    pkgs.mpvScripts.uosc
+    pkgs.mpvScripts.autocrop
+    pkgs.mpvScripts.autoload
+    pkgs.mpvScripts.mpv-webm
+    pkgs.mpvScripts.thumbfast
     (import ../../scripts/emopicker9000.nix { inherit pkgs; })
     (import ../../scripts/task-waybar.nix { inherit pkgs; })
     (import ../../scripts/squirtle.nix { inherit pkgs; })
@@ -117,13 +112,14 @@ in
       enable = true;
       indicator = true;
     };
+
     hypridle = {
       settings = {
         general = {
           after_sleep_cmd = "hyprctl dispatch dpms on";
           ignore_dbus_inhibit = false;
           lock_cmd = "hyprlock";
-          };
+        };
         listener = [
           {
             timeout = 900;
@@ -140,13 +136,23 @@ in
   };
 
   programs = {
-    gh.enable = true;
+    git = {
+      enable = true;
+      userName = "${gitUsername}";
+      userEmail = "${gitEmail}";
+    };
+
+    gh = {
+      enable = true;
+    };
+
     btop = {
       enable = true;
       settings = {
         vim_keys = true;
       };
     };
+
     kitty = {
       enable = true;
       package = pkgs.kitty;
@@ -163,72 +169,74 @@ in
         inactive_tab_font_style bold
       '';
     };
-     starship = {
-            enable = true;
-            package = pkgs.starship;
-     };
-     fish = {
-        enable = true;
-        shellInit = ''
-          export PATH="$HOME/.cargo/bin:$PATH"
-          fastfetch
-        '';
-        interactiveShellInit = ''
+
+    starship = {
+      enable = true;
+      package = pkgs.starship;
+    };
+
+    fish = {
+      enable = true;
+      shellInit = ''
+        export PATH="$HOME/.cargo/bin:$PATH"
+        fastfetch
+      '';
+      interactiveShellInit = ''
         if test -f ~/.config/fish/config.fish-personal
           source ~/.config/fish/config.fish-personal
         end
-        '';
-        shellAliases = {
-          sv = "sudo nvim";
-          fr = "nh os switch --hostname ${host} /home/${username}/nix";
-          fu = "nh os switch --hostname ${host} --update /home/${username}/nix";
-          ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
-          v = "nvim";
-          cat = "bat";
-          ls = "eza --icons";
-          ll = "eza -lh --icons --grid --group-directories-first";
-          la = "eza -lah --icons --grid --group-directories-first";
-           ".." = "cd ..";
-         };
-     };
-    home-manager.enable = true;
-    hyprlock = {
-      enable = false;
-      settings = {
-        general = {
-          disable_loading_bar = true;
-          grace = 10;
-          hide_cursor = true;
-          no_fade_in = false;
-        };
-        image = [
-          {
-            path = "/home/${username}/.config/face.jpg";
-            size = 150;
-            border_size = 4;
-            border_color = "rgb(0C96F9)";
-            rounding = -1; # negative = circle
-            position = "0, 200";
-            halign = "center";
-            valign = "center";
-          }
-        ];
-        input-field = [
-          {
-            size = "200, 50";
-            position = "0, -80";
-            monitor = "";
-            dots_center = true;
-            fade_on_empty = false;
-            font_color = "rgb(CFE6F4)";
-            inner_color = "rgb(657DC2)";
-            outer_color = "rgb(0D0E15)";
-            outline_thickness = 5;
-            placeholder_text = "Password...";
-            shadow_passes = 2;
-          }
-        ];
+      '';
+      shellAliases = {
+        sv = "sudo nvim";
+        fr = "nh os switch --hostname ${host} /home/${username}/nix";
+        fu = "nh os switch --hostname ${host} --update /home/${username}/nix";
+        ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
+        v = "nvim";
+        cat = "bat";
+        ls = "eza --icons";
+        ll = "eza -lh --icons --grid --group-directories-first";
+        la = "eza -lah --icons --grid --group-directories-first";
+        ".." = "cd ..";
       };
+    };
+
+    mpv = {
+      enable = true;
+      scripts = with pkgs.mpvScripts; [
+        uosc
+        autocrop
+        autoload
+        mpv-webm
+        thumbfast
+        memo
+        quality-menu
+      ];
+    };
+  };
+
+  home.file = {
+    ".config/mpv/input.conf" = { source = ../../config/mpv/input.conf; };
+    ".config/mpv/mpv.conf" = { source = ../../config/mpv/mpv.conf; };
+    ".config/mpv/profiles.conf" = { source = ../../config/mpv/profiles.conf; };
+    ".config/mpv/cache" = {
+      source = ../../config/mpv/cache;
+      recursive = true;
+    };
+    ".config/mpv/fonts" = {
+      source = ../../config/mpv/fonts;
+      recursive = true;
+    };
+    ".config/mpv/script-opts" = {
+      source = ../../config/mpv/script-opts;
+      recursive = true;
+    };
+    ".config/mpv/scripts" = {
+      source = ../../config/mpv/scripts;
+      recursive = true;
+    };
+    ".config/mpv/shaders" = {
+      source = ../../config/mpv/shaders;
+      recursive = true;
     };
   };
 }

@@ -1,11 +1,10 @@
-{
-  config,
-  pkgs,
-  inputs,
-  host,
-  username,
-  options,
-  ...
+{ config
+, pkgs
+, inputs
+, host
+, username
+, options
+, ...
 }:
 let
   inherit (import ./variables.nix) keyboardLayout;
@@ -24,12 +23,12 @@ in
 
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
-    kernelModules = [ 
-    "v4l2loopback" 
-    "zswap.enabled=1" 
-    "zswap.compressor=zstd" 
-    "zswap.zpool=z3fold" 
-    "zswap.max_pool_percent=50"
+    kernelModules = [
+      "v4l2loopback"
+      "zswap.enabled=1"
+      "zswap.compressor=zstd"
+      "zswap.zpool=z3fold"
+      "zswap.max_pool_percent=50"
     ];
     extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
     # https://wiki.archlinux.org/title/Gaming#Increase_vm.max_map_count
@@ -55,47 +54,47 @@ in
     };
     plymouth.enable = true;
   };
-    swapDevices = [
-      {
-        device = "/var/lib/swapfile";
-        size = 16 * 1024;
-      }
-    ];
-    zramSwap = {
-      enable = true;
-      algorithm = "zstd";
-      memoryPercent = 50;
-      priority = 10;
-    };
-    stylix = {
-      enable = true;
-      image = ../../config/wallpapers/blue-kaiju.png;
-      polarity = "dark";
-      opacity.terminal = 0.8;
-      cursor.package = pkgs.bibata-cursors;
-      cursor.name = "Bibata-Modern-Ice";
-      cursor.size = 24;
-      fonts = {
-        monospace = {
-          package = pkgs.nerd-fonts.jetbrains-mono;
-          name = "JetBrainsMono Nerd Font Mono";
-        };
-        sansSerif = {
-          package = pkgs.montserrat;
-          name = "Montserrat";
-        };
-        serif = {
-          package = pkgs.montserrat;
-          name = "Montserrat";
-        };
-        sizes = {
-          applications = 12;
-          terminal = 15;
-          desktop = 11;
-          popups = 12;
-        };
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 16 * 1024;
+    }
+  ];
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 50;
+    priority = 10;
+  };
+  stylix = {
+    enable = true;
+    image = ../../config/wallpapers/blue-kaiju.png;
+    polarity = "dark";
+    opacity.terminal = 0.8;
+    cursor.package = pkgs.bibata-cursors;
+    cursor.name = "Bibata-Modern-Ice";
+    cursor.size = 24;
+    fonts = {
+      monospace = {
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "JetBrainsMono Nerd Font Mono";
+      };
+      sansSerif = {
+        package = pkgs.montserrat;
+        name = "Montserrat";
+      };
+      serif = {
+        package = pkgs.montserrat;
+        name = "Montserrat";
+      };
+      sizes = {
+        applications = 12;
+        terminal = 15;
+        desktop = 11;
+        popups = 12;
       };
     };
+  };
 
   # modular configuration options
   drivers.nvidia.enable = true;
@@ -110,7 +109,7 @@ in
     hostName = host;
     timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
 
-    bridges.tornet.interfaces = [];
+    bridges.tornet.interfaces = [ ];
     nftables = {
       enable = true;
       ruleset = ''
@@ -141,7 +140,6 @@ in
       };
     };
   };
-
 
   # timezone
   time.timeZone = "America/New_York";
@@ -249,31 +247,31 @@ in
     };
     mtr.enable = true;
     adb.enable = true;
-    nix-ld.enable = true;    
+    nix-ld.enable = true;
     gamemode = {
       settings.general.inhibit_screensaver = 0;
       enable = true;
       enableRenice = true;
     };
     spicetify = {
-    enable = true;
-    enabledCustomApps = with spicePkgs.apps; [
-      betterLibrary
-      historyInSidebar
-      localFiles
-      lyricsPlus
-      marketplace
-      nameThatTune
-    ];
-    enabledExtensions = with spicePkgs.extensions; [
-      adblock
-      beautifulLyrics
-      hidePodcasts
-      history
-      shuffle
-      volumePercentage
-      keyboardShortcut
-    ];
+      enable = true;
+      enabledCustomApps = with spicePkgs.apps; [
+        betterLibrary
+        historyInSidebar
+        localFiles
+        lyricsPlus
+        marketplace
+        nameThatTune
+      ];
+      enabledExtensions = with spicePkgs.extensions; [
+        adblock
+        beautifulLyrics
+        hidePodcasts
+        history
+        shuffle
+        volumePercentage
+        keyboardShortcut
+      ];
     };
     gnupg.agent = {
       enable = true;
@@ -296,7 +294,7 @@ in
   };
 
   nixpkgs.config.allowUnfree = true;
-  
+
   users = {
     mutableUsers = true;
   };
@@ -372,7 +370,7 @@ in
     })
     libvdpau-va-gl
   ];
- 
+
   fonts = {
     packages = with pkgs; [
       noto-fonts-emoji
@@ -426,7 +424,7 @@ in
       openFirewall = true;
       settings = {
         TransPort = [ 9040 ];
-        DNSPort   = 5353;
+        DNSPort = 5353;
         VirtualAddrNetworkIPv4 = "172.30.0.0/16";
       };
     };
@@ -450,7 +448,7 @@ in
       enable = true;
       openFirewall = true;
       interfaceName = "userspace-networking";
-      extraSetFlags = ["--operator=${username}" "--ssh"];
+      extraSetFlags = [ "--operator=${username}" "--ssh" ];
     };
     syncthing = {
       enable = true;
@@ -495,7 +493,6 @@ in
     disabledDefaultBackends = [ "escl" ];
   };
   hardware.opentabletdriver.enable = true;
-
 
   # bluetooth support
   hardware.bluetooth.enable = true;
