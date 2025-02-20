@@ -1,11 +1,12 @@
-{
-  pkgs,
-  username,
-  inputs,
-  ...
-}: let
+{ pkgs
+, username
+, inputs
+, ...
+}:
+let
   inherit (import ./variables.nix) gitUsername;
-in {
+in
+{
   users.users = {
     "${username}" = {
       homeMode = "755";
@@ -60,7 +61,7 @@ in {
         qpwgraph
         kicad
         jellyfin-mpv-shim
-        jellyfin
+        jellyfin-media-player
       ];
     };
   };
