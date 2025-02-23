@@ -1,0 +1,28 @@
+{
+  inputs,
+  nixpkgs,
+  self,
+  username,
+  host,
+  ...
+}: {
+  imports = [
+    ./adb.nix
+    ./bootloader.nix
+    ./catppuccin.nix
+    ./hardware.nix
+    ./xserver.nix
+    ./network.nix
+    ./nh.nix
+    ./pipewire.nix
+    ./program.nix
+    ./security.nix
+    ./services.nix
+    ./steam.nix
+    ./sunshine.nix
+    ./system.nix
+    ./flatpak.nix
+    ./user.nix
+    ./virtualization.nix
+  ];
+}
