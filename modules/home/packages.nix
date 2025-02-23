@@ -2,13 +2,10 @@
   inputs,
   pkgs,
   ...
-}:
-let
-in
-{
+}: let
+in {
   home.packages = (
-    with pkgs;
-    [
+    with pkgs; [
       ## CLI utility
       ani-cli
       binsider
@@ -116,6 +113,7 @@ in
       # Node
       nodejs
       deno
+      rustup
 
       inputs.alejandra.defaultPackage.${system}
     ]
