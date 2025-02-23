@@ -2,10 +2,13 @@
   inputs,
   pkgs,
   ...
-}: let
-in {
+}:
+let
+in
+{
   home.packages = (
-    with pkgs; [
+    with pkgs;
+    [
       ## CLI utility
       ani-cli
       binsider
@@ -67,6 +70,7 @@ in {
       sl
       tty-clock # cli clock
       kdePackages.plasma-browser-integration
+      neovim
 
       ## GUI Apps
       audacity
