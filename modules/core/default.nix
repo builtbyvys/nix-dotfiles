@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ./adb.nix
     ./bootloader.nix

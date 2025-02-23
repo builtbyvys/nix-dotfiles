@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs = {
     kdeconnect.enable = true;
     dconf.enable = true;
@@ -9,7 +10,7 @@
     };
     nix-ld = {
       enable = true;
-      libraries = with pkgs; [];
+      libraries = with pkgs; [ ];
     };
   };
 }

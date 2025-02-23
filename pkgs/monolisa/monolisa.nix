@@ -4,8 +4,7 @@
   unzip,
   lib,
 }:
-
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   name = "monolisa";
   version = "2.015";
 

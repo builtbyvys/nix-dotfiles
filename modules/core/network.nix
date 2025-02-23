@@ -1,5 +1,4 @@
 { pkgs, host, ... }:
-
 let
   tailscale-auth-key = builtins.toFile "tailscale-auth-key" "tskey-auth-kquZM7p3Fi11CNTRL-bXKsdGcmpedUSh3FjauKfdDrGN14Bko7P";
 in

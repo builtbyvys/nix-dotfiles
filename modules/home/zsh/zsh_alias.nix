@@ -4,7 +4,8 @@
   pkgs,
   host,
   ...
-}: {
+}:
+{
   programs.zsh = {
     shellAliases = {
       # Utils

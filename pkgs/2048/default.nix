@@ -5,9 +5,7 @@
   pkgs,
   ...
 }:
-
 with pkgs;
-
 stdenv.mkDerivation rec {
   pname = "2048";
   version = "1.0";

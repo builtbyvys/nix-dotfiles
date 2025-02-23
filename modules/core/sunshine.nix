@@ -1,13 +1,11 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{ config, pkgs, ... }:
+let
   sunshineWithCuda = pkgs.sunshine.override {
     cudaSupport = true;
     stdenv = pkgs.cudaPackages.backendStdenv;
   };
-in {
+in
+{
   networking.firewall.allowedTCPPortRanges = [
     {
       from = 47984;
@@ -39,4 +37,3 @@ in {
     };
   };
 }
-

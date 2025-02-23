@@ -1,12 +1,11 @@
 {
   stdenv,
-  requireFile,
   nerd-font-patcher,
   python3Packages,
   monolisa,
   lib,
 }:
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   name = "monolisa-nerd";
   version = "${monolisa.version}-${nerd-font-patcher.version}";
 
