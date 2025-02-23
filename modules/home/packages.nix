@@ -113,6 +113,10 @@ in
       python3
       python312Packages.ipython
 
+      # Node
+      nodejs
+      deno
+
       inputs.alejandra.defaultPackage.${system}
     ]
   );
