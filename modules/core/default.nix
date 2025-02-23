@@ -1,11 +1,4 @@
-{
-  inputs,
-  nixpkgs,
-  self,
-  username,
-  host,
-  ...
-}: {
+{...}: {
   imports = [
     ./adb.nix
     ./bootloader.nix

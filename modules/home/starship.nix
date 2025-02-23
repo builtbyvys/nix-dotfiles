@@ -1,5 +1,4 @@
-{ lib, inputs, ... }:
-{
+{lib, ...}: {
   programs.starship = {
     enable = false;
 

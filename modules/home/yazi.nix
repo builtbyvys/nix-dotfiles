@@ -1,5 +1,4 @@
-{ inputs, pkgs, ... }:
-{
+{inputs, ...}: {
   programs.yazi = {
     enable = true;
     enableZshIntegration = true;

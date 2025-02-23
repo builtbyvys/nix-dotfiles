@@ -1,11 +1,4 @@
-{ pkgs, config, ... }:
-let
-  monolisa = pkgs.callPackage ../../pkgs/monolisa/monolisa.nix { };
-  monolisa-nerd = pkgs.callPackage ../../pkgs/monolisa/monolisa-nerd.nix {
-    inherit monolisa;
-  };
-in
-{
+{pkgs, ...}: {
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
@@ -26,21 +19,9 @@ in
       name = "Maple Mono";
       size = 12;
     };
-    theme = {
-      name = "Colloid-Green-Dark-Gruvbox";
-      package = pkgs.colloid-gtk-theme.override {
-        colorVariants = [ "dark" ];
-        themeVariants = [ "green" ];
-        tweaks = [
-          "gruvbox"
-          "rimless"
-          "float"
-        ];
-      };
-    };
     iconTheme = {
       name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme.override { color = "black"; };
+      package = pkgs.papirus-icon-theme.override {color = "black";};
     };
     cursorTheme = {
       name = "Bibata-Modern-Ice";

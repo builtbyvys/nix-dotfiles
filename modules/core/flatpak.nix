@@ -1,6 +1,5 @@
-{ inputs, pkgs, ... }:
-{
-  imports = [ inputs.nix-flatpak.nixosModules.nix-flatpak ];
+{inputs, ...}: {
+  imports = [inputs.nix-flatpak.nixosModules.nix-flatpak];
 
   services.flatpak = {
     enable = true;

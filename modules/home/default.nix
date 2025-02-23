@@ -1,9 +1,4 @@
-{
-  inputs,
-  username,
-  host,
-  ...
-}: {
+{...}: {
   imports = [
     ./aseprite/aseprite.nix # pixel art editor
     ./audacious.nix # music player

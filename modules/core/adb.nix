@@ -1,8 +1,6 @@
-{ config, pkgs, ... }:
-
-{
+{pkgs, ...}: {
   programs.adb.enable = true;
-  users.users.yamil.extraGroups = [ "adbusers" ];
+  users.users.yamil.extraGroups = ["adbusers"];
   services.udev.packages = [
     pkgs.android-udev-rules
   ];
