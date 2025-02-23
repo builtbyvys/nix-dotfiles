@@ -3,8 +3,7 @@
   username,
   host,
   ...
-}:
-{
+}: {
   imports = [
     ./aseprite/aseprite.nix # pixel art editor
     ./audacious.nix # music player
@@ -24,7 +23,6 @@
     ./lazygit.nix
     ./micro.nix # nano replacement
     ./nemo.nix # file manager
-    ./nvim.nix # neovim editor
     ./obsidian.nix
     ./p10k/p10k.nix
     ./packages.nix # other packages
