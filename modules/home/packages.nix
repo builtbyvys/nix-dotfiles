@@ -89,7 +89,6 @@
       zenity
       keepassxc
       syncthing
-      openrgb-with-all-plugins
       opentabletdriver
       jellyfin-mpv-shim
       qpwgraph

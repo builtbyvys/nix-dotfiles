@@ -19,6 +19,7 @@
     ./micro.nix # nano replacement
     ./nemo.nix # file manager
     ./obsidian.nix
+    ./openrgb-udev-rules.nix
     ./p10k/p10k.nix
     ./packages.nix # other packages
     ./retroarch.nix
