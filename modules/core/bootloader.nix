@@ -6,4 +6,8 @@
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
   services.scx.enable = true;
   boot.supportedFilesystems = [ "ntfs" ];
+  boot.kernelModules = [
+    "i2c-dev"
+    "i2c-piix4"
+  ];
 }

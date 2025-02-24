@@ -1,9 +1,9 @@
-{ ... }:
-{
+{...}: {
   imports = [
     ./adb.nix
     ./bootloader.nix
     ./catppuccin.nix
+    #./openrgb-udev-rules.nix
     ./hardware.nix
     ./xserver.nix
     ./network.nix
