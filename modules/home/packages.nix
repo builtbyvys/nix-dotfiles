@@ -94,6 +94,7 @@
       qpwgraph
       chatterino7
       streamlink
+      pinentry-curses
 
       # C / C++
       gcc
