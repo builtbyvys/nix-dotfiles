@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   services = {
     gvfs.enable = true;
     gnome = {
@@ -8,6 +7,7 @@
     };
     dbus.enable = true;
     fstrim.enable = true;
+    blueman.enable = true;
 
     # needed for GNOME services outside of GNOME Desktop
     dbus.packages = with pkgs; [
