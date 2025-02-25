@@ -82,8 +82,6 @@
       gnome-calculator # calculator
       resources # GUI resources monitor
       soundwireserver
-      thunderbird
-      vlc
       winetricks
       wineWowPackages.wayland
       zenity

@@ -354,11 +354,11 @@
         "zig2nix": "zig2nix"
       },
       "locked": {
-        "lastModified": 1740503171,
-        "narHash": "sha256-+hVaz1Dp+fg8XeW/UV1p3xvrSWQY/Q8bBdinjGefv6s=",
+        "lastModified": 1740509669,
+        "narHash": "sha256-TyAkm8Q9lJF7Q33RMbLQiedKJ5xZ62dhvIfQy6YOus8=",
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "0b7df7511a180f2b2363fbdc2f201b5b2b73cb5e",
+        "rev": "9972eeb673a8871b97c22a7d7ae81d1ffef5a8f5",
         "type": "github"
       },
       "original": {
@@ -756,11 +756,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1740502105,
-        "narHash": "sha256-TtfCsLwgmdvWPJbIdR3owvWM0gzAWLkFAdhZxxLaey0=",
+        "lastModified": 1740513008,
+        "narHash": "sha256-HIyaQOay9oEcjoWvUzyR4LrHaThGWaghj6d45uFo4XY=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "2125f607c8da8affb1fce57a422ee078ba399954",
+        "rev": "19be56b8788c58eb2c10dcac51c508a5e2505d27",
         "type": "github"
       },
       "original": {
