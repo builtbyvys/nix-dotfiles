@@ -4,6 +4,10 @@
 
   services.flatpak = {
     enable = true;
+    update.auto = {
+      enable = true;
+      onCalendar = "weekly";
+    };
     packages = [
       # "io.github.zen_browser.zen"
       "com.github.tchx84.Flatseal"
