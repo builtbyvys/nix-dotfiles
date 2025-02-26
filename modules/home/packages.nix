@@ -66,6 +66,7 @@
       sl
       tty-clock # cli clock
       kdePackages.plasma-browser-integration
+      kdePackages.kio-gdrive
       neovim
 
       ## GUI Apps
