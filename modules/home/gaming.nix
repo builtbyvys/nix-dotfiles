@@ -6,7 +6,6 @@
     cemu
     dolphin-emu
     osu-lazer-bin
-    wine-discord-ipc-bridge
     gamemode
   ];
 }
