@@ -1,16 +1,12 @@
-{
-  pkgs,
-  lib,
-  ...
-}: let
+{ pkgs, lib, ... }:
+let
   sources = import ../../nix/sources.nix;
   lanzaboote = import sources.lanzaboote;
-in {
-  imports = [lanzaboote.nixosModules.lanzaboote];
+in
+{
+  imports = [ lanzaboote.nixosModules.lanzaboote ];
 
-  environment.systemPackages = [
-    pkgs.sbctl
-  ];
+  environment.systemPackages = [ pkgs.sbctl ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_cachyos;
@@ -33,8 +29,6 @@ in {
       configurationLimit = 10;
     };
 
-    supportedFilesystems = ["ntfs"];
+    supportedFilesystems = [ "ntfs" ];
   };
-
-  services.scx.enable = true;
 }

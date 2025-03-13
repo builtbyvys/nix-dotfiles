@@ -36,58 +36,61 @@
     catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = {
-    nixpkgs,
-    self,
-    catppuccin,
-    home-manager,
-    chaotic,
-    ...
-  } @ inputs: let
-    username = "yamil";
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
+  outputs =
+    {
+      nixpkgs,
+      self,
+      catppuccin,
+      home-manager,
+      chaotic,
+      ...
+    }@inputs:
+    let
+      username = "yamil";
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      lib = nixpkgs.lib;
+    in
+    {
+      # NixOS configurations for different machines
+      nixosConfigurations = {
+        desktop = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/desktop
+            catppuccin.nixosModules.catppuccin
+            home-manager.nixosModules.home-manager
+            chaotic.nixosModules.default
+            {
+              home-manager.users.yamil = {
+                imports = [ catppuccin.homeManagerModules.catppuccin ];
+              };
+            }
+          ];
+          specialArgs = {
+            host = "desktop";
+            inherit self inputs username;
+          };
+        };
+        laptop = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [ ./hosts/laptop ];
+          specialArgs = {
+            host = "laptop";
+            inherit self inputs username;
+          };
+        };
+        vm = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [ ./hosts/vm ];
+          specialArgs = {
+            host = "vm";
+            inherit self inputs username;
+          };
+        };
+      };
     };
-    lib = nixpkgs.lib;
-  in {
-    # NixOS configurations for different machines
-    nixosConfigurations = {
-      desktop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/desktop
-          catppuccin.nixosModules.catppuccin
-          home-manager.nixosModules.home-manager
-          chaotic.nixosModules.default
-          {
-            home-manager.users.yamil = {
-              imports = [catppuccin.homeManagerModules.catppuccin];
-            };
-          }
-        ];
-        specialArgs = {
-          host = "desktop";
-          inherit self inputs username;
-        };
-      };
-      laptop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [./hosts/laptop];
-        specialArgs = {
-          host = "laptop";
-          inherit self inputs username;
-        };
-      };
-      vm = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [./hosts/vm];
-        specialArgs = {
-          host = "vm";
-          inherit self inputs username;
-        };
-      };
-    };
-  };
 }
