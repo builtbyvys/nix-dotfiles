@@ -1,5 +1,6 @@
-{pkgs, ...}: {
-  environment.systemPackages = [pkgs.sbctl];
+{ pkgs, ... }:
+{
+  environment.systemPackages = [ pkgs.sbctl ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_cachyos;
@@ -16,6 +17,6 @@
       efi.canTouchEfiVariables = true;
     };
 
-    supportedFilesystems = ["ntfs"];
+    supportedFilesystems = [ "ntfs" ];
   };
 }

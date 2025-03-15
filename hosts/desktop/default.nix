@@ -1,8 +1,5 @@
+{ pkgs, lib, ... }:
 {
-  pkgs,
-  lib,
-  ...
-}: {
   imports = [
     ./hardware-configuration.nix
     ./../../modules/core
@@ -18,7 +15,5 @@
     pkiBundle = "/var/lib/sbctl";
   };
 
-  environment.systemPackages = with pkgs; [
-    sbctl
-  ];
+  environment.systemPackages = with pkgs; [ sbctl ];
 }
