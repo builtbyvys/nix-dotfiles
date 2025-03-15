@@ -59,7 +59,7 @@
         copyEmojiMarkdown.enable = true;
         copyFileContents.enable = true;
         copyUserURLs.enable = true;
-        customIdle.enable = {
+        customIdle = {
           enable = true;
           idleTimeout = 5.0;
           remainInIdle = false;
