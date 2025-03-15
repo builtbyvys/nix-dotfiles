@@ -54,7 +54,7 @@
         blurNSFW.enable = true;
         callTimer.enable = true;
         clearURLs.enable = true;
-        consolejanitor.enable = true;
+        consoleJanitor.enable = true;
         consoleShortcuts.enable = true;
         copyEmojiMarkdown.enable = true;
         copyFileContents.enable = true;
@@ -148,7 +148,7 @@
           enable = true;
           mode = "nick-user";
         };
-        showTimeoutDuration = true;
+        showTimeoutDuration.enable = true;
         silentTyping = {
           enable = true;
           showIcon = true;
