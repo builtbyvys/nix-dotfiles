@@ -1,12 +1,5 @@
-{ pkgs, lib, ... }:
-let
-  sources = import ../../nix/sources.nix;
-  lanzaboote = import sources.lanzaboote;
-in
-{
-  imports = [ lanzaboote.nixosModules.lanzaboote ];
-
-  environment.systemPackages = [ pkgs.sbctl ];
+{pkgs, ...}: {
+  environment.systemPackages = [pkgs.sbctl];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_cachyos;
@@ -19,16 +12,10 @@ in
     };
 
     loader = {
-      systemd-boot.enable = lib.mkForce false;
+      systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
 
-    lanzaboote = {
-      enable = true;
-      pkiBundle = "/var/lib/sbctl";
-      configurationLimit = 10;
-    };
-
-    supportedFilesystems = [ "ntfs" ];
+    supportedFilesystems = ["ntfs"];
   };
 }
