@@ -4,7 +4,6 @@
     ./adb.nix
     ./bootloader.nix
     ./catppuccin.nix
-    ./discord.nix
     #./openrgb-udev-rules.nix
     ./hardware.nix
     ./xserver.nix

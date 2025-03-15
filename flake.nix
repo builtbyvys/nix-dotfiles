@@ -38,68 +38,78 @@
       url = "github:nix-community/lanzaboote/v0.4.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixcord = {
+      url = "github:KaylorBen/nixcord";
+    };
   };
 
-  outputs = {
-    nixpkgs,
-    self,
-    catppuccin,
-    home-manager,
-    chaotic,
-    lanzaboote,
-    ...
-  } @ inputs: let
-    username = "yamil";
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
+  outputs =
+    {
+      nixpkgs,
+      self,
+      catppuccin,
+      home-manager,
+      chaotic,
+      lanzaboote,
+      nixcord,
+      ...
+    }@inputs:
+    let
+      username = "yamil";
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      lib = nixpkgs.lib;
+    in
+    {
+      # NixOS configurations for different machines
+      nixosConfigurations = {
+        desktop = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/desktop
+            catppuccin.nixosModules.catppuccin
+            home-manager.nixosModules.home-manager
+            chaotic.nixosModules.default
+            lanzaboote.nixosModules.lanzaboote
+            {
+              home-manager.users.yamil = {
+                imports = [
+                  catppuccin.homeManagerModules.catppuccin
+                  nixcord.homeManagerModules.nixcord
+                ];
+              };
+            }
+          ];
+          specialArgs = {
+            host = "desktop";
+            inherit self inputs username;
+          };
+        };
+        laptop = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/laptop
+            lanzaboote.nixosModules.lanzaboote
+          ];
+          specialArgs = {
+            host = "laptop";
+            inherit self inputs username;
+          };
+        };
+        vm = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/vm
+            lanzaboote.nixosModules.lanzaboote
+          ];
+          specialArgs = {
+            host = "vm";
+            inherit self inputs username;
+          };
+        };
+      };
     };
-    lib = nixpkgs.lib;
-  in {
-    # NixOS configurations for different machines
-    nixosConfigurations = {
-      desktop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/desktop
-          catppuccin.nixosModules.catppuccin
-          home-manager.nixosModules.home-manager
-          chaotic.nixosModules.default
-          lanzaboote.nixosModules.lanzaboote
-          {
-            home-manager.users.yamil = {
-              imports = [catppuccin.homeManagerModules.catppuccin];
-            };
-          }
-        ];
-        specialArgs = {
-          host = "desktop";
-          inherit self inputs username;
-        };
-      };
-      laptop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/laptop
-          lanzaboote.nixosModules.lanzaboote
-        ];
-        specialArgs = {
-          host = "laptop";
-          inherit self inputs username;
-        };
-      };
-      vm = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/vm
-          lanzaboote.nixosModules.lanzaboote
-        ];
-        specialArgs = {
-          host = "vm";
-          inherit self inputs username;
-        };
-      };
-    };
-  };
 }
