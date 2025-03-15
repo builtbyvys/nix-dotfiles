@@ -94,7 +94,7 @@
         hideAttachments.enable = true;
         iLoveSpam.enable = true;
         imageZoom.enable = true;
-        implicitRelationships = true;
+        implicitRelationships.enable = true;
         invisibleChat.enable = true;
         loadingQuotes.enable = true;
         memberCount.enable = true;
