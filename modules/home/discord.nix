@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   programs.nixcord = {
     enable = true;
     discord = {
@@ -195,8 +194,8 @@
       notifyAboutUpdates = true;
       autoUpdate = true;
       autoUpdateNotification = true;
-      themeLinks = [ ];
-      enabledThemes = [ ];
+      themeLinks = [];
+      enabledThemes = [];
       enableReactDevtools = false;
     };
   };
