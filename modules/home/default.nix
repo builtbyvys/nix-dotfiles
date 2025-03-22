@@ -13,7 +13,6 @@
     ./ghostty.nix # terminal
     ./git.nix # version control
     ./gnome.nix # gnome apps
-    ./gtk.nix # gtk theme
     ./jellyfin.nix
     ./kitty.nix # terminal
     ./lazygit.nix
