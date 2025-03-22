@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   programs.nixcord = {
     enable = true;
     discord = {
@@ -121,7 +122,7 @@
         permissionsViewer.enable = true;
         pinDMs.enable = true;
         platformIndicators.enable = true;
-        pronounDB.enable = true;
+        userMessagesPronouns.enable = true;
         quickMention.enable = true;
         quickReply.enable = true;
         reactErrorDecoder.enable = true;
@@ -194,8 +195,8 @@
       notifyAboutUpdates = true;
       autoUpdate = true;
       autoUpdateNotification = true;
-      themeLinks = [];
-      enabledThemes = [];
+      themeLinks = [ ];
+      enabledThemes = [ ];
       enableReactDevtools = false;
     };
   };

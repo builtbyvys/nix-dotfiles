@@ -6,6 +6,7 @@
     nur.url = "github:nix-community/NUR";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
+    agenix.url = "github:yaxitech/ragenix";
     nix-gaming.url = "github:fufexan/nix-gaming";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -47,6 +48,7 @@
     {
       nixpkgs,
       self,
+      agenix,
       catppuccin,
       home-manager,
       chaotic,
@@ -70,6 +72,7 @@
           inherit system;
           modules = [
             ./hosts/desktop
+            agenix.nixosModules.default
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             chaotic.nixosModules.default
