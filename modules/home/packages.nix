@@ -93,6 +93,7 @@
       opentabletdriver
       jellyfin-mpv-shim
       qpwgraph
+      nix-ld
       chatterino7
       streamlink
       pinentry-curses
