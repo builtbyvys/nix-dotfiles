@@ -8,5 +8,6 @@
     dolphin-emu
     osu-lazer-bin
     gamemode
+    r2modman
   ];
 }
