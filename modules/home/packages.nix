@@ -96,7 +96,8 @@
       nix-ld
       chatterino7
       streamlink
-      pinentry-curses
+      avbroot
+      scrcpy
 
       # C / C++
       gcc
