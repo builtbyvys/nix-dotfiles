@@ -98,7 +98,6 @@
       streamlink
       avbroot
       scrcpy
-      cider-2
 
       # C / C++
       gcc
