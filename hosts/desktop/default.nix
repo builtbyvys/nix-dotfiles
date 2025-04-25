@@ -15,8 +15,5 @@
     pkiBundle = "/var/lib/sbctl";
   };
 
-  environment.systemPackages = with pkgs; [
-    sbctl
-    cider-2
-  ];
+  environment.systemPackages = with pkgs; [ sbctl ];
 }
