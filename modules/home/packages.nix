@@ -70,6 +70,7 @@
       kdePackages.powerdevil
       neovim
       ragenix
+      dotnet-sdk
 
       ## GUI Apps
       audacity
