@@ -101,6 +101,7 @@
       avbroot
       scrcpy
       vrcx
+      qbittorrent-enhanced
 
       # C / C++
       gcc
