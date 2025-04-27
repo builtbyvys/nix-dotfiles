@@ -71,6 +71,7 @@
       neovim
       ragenix
       dotnet-sdk
+      dotnet-runtime
 
       ## GUI Apps
       audacity
@@ -99,6 +100,7 @@
       streamlink
       avbroot
       scrcpy
+      vrcx
 
       # C / C++
       gcc
