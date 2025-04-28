@@ -102,6 +102,7 @@
       scrcpy
       vrcx
       qbittorrent-enhanced
+      tor-browser
 
       # C / C++
       gcc
