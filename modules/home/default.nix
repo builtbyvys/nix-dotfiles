@@ -27,6 +27,7 @@
     ./spicetify.nix # spotify client
     ./starship.nix # shell prompt
     # ./viewnior.nix                    # image viewer
+    ./vr.nix
     ./xdg-mimes.nix # xdg config
     ./yazi.nix # terminal file manager
     ./zsh # shell

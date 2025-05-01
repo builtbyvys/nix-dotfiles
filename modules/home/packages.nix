@@ -100,9 +100,9 @@
       streamlink
       avbroot
       scrcpy
-      vrcx
       qbittorrent-enhanced
       tor-browser
+      android-studio
 
       # C / C++
       gcc
