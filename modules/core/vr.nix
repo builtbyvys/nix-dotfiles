@@ -1,6 +1,6 @@
 {
   # NixPkgs
-  nixpkgs.config.supportCuda = true;
+  nixpkgs.config.cudaSupport = true;
 
   # WiVRn
   services.wivrn = {
