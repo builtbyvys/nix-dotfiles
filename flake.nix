@@ -42,6 +42,7 @@
     nixcord = {
       url = "github:KaylorBen/nixcord";
     };
+    nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
   };
 
   outputs =
@@ -54,6 +55,7 @@
       chaotic,
       lanzaboote,
       nixcord,
+      nixpkgs-xr,
       ...
     }@inputs:
     let
@@ -77,6 +79,7 @@
             home-manager.nixosModules.home-manager
             chaotic.nixosModules.default
             lanzaboote.nixosModules.lanzaboote
+            nixpkgs-xr.nixosModules.nixpkgs-xr
             {
               home-manager.users.yamil = {
                 imports = [
