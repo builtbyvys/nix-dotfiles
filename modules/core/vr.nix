@@ -1,4 +1,8 @@
 {
+  # NixPkgs
+  nixpkgs.config.supportCuda = true;
+
+  # WiVRn
   services.wivrn = {
     enable = true;
     openFirewall = true;
@@ -17,12 +21,11 @@
       json = {
         # 1.0x foveation scaling
         scale = 1.0;
-        # 100 Mb/s
-        bitrate = 100000000;
+        bitrate = 200000000;
         encoders = [
           {
-            encoder = "vaapi";
-            codec = "h265";
+            encoder = "nvenc";
+            codec = "av1";
             # 1.0 x 1.0 scaling
             width = 1.0;
             height = 1.0;
