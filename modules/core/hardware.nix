@@ -23,5 +23,4 @@
     enable = true;
     motherboard = "amd";
   };
-  config.nixpkgs.cudaSupport = true;
 }
