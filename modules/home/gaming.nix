@@ -12,7 +12,7 @@
     torzu
     shadps4_git
     heroic-unwrapped
-    umu-launcher-unwrapped
+    umu-launcher
     gamescope_git
     mangohud_git
   ];
