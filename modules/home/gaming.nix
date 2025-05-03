@@ -13,5 +13,7 @@
     shadps4_git
     heroic-unwrapped
     umu-launcher-unwrapped
+    gamescope_git
+    mangohud_git
   ];
 }

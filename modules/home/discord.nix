@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.nixcord = {
     enable = true;
@@ -7,6 +7,7 @@
         enable = true;
         unstable = true;
       };
+      package = pkgs.discord-krisp;
       openASAR.enable = true;
     };
 
