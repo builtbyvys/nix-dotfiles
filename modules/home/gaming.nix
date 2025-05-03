@@ -10,5 +10,8 @@
     gamemode
     r2modman
     torzu
+    shadps4_git
+    heroic-unwrapped
+    umu-launcher-unwrapped
   ];
 }

@@ -103,6 +103,8 @@
       qbittorrent-enhanced
       tor-browser
       android-studio
+      cabextract
+      p7zip-rar
 
       # C / C++
       gcc
