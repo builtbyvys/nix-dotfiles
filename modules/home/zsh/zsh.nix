@@ -3,6 +3,7 @@
   config,
   pkgs,
   host,
+  lib,
   ...
 }:
 {
@@ -103,7 +104,8 @@
       zstyle ':fzf-tab:*' switch-group ',' '.'
     '';
 
-    initExtraFirst = ''
+    # Replace initExtraFirst with initContent and lib.mkBefore
+    initContent = lib.mkBefore ''
       # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
       # Initialization code that may require console input (password prompts, [y/n]
       # confirmations, etc.) must go above this block; everything else may go below.
@@ -114,7 +116,6 @@
       DISABLE_AUTO_UPDATE=true
       DISABLE_MAGIC_FUNCTIONS=true
       export "MICRO_TRUECOLOR=1"
-
 
       setopt sharehistory
       setopt hist_ignore_space
