@@ -9,7 +9,7 @@
     osu-lazer-bin
     gamemode
     r2modman
-    torzu
+    # torzu: and now it's apparently gonna get DMCA'd
     shadps4_git
     heroic-unwrapped
     umu-launcher
