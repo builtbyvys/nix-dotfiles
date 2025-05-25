@@ -83,8 +83,8 @@
             {
               home-manager.users.yamil = {
                 imports = [
-                  catppuccin.homeManagerModules.catppuccin
-                  nixcord.homeManagerModules.nixcord
+                  catppuccin.homeModules.catppuccin
+                  nixcord.homeModules.nixcord
                 ];
               };
             }
