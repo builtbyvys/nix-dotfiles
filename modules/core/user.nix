@@ -49,6 +49,7 @@
       "networkmanager"
       "wheel"
       "gamemode"
+      "docker"
     ];
     shell = pkgs.zsh;
   };
