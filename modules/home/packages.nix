@@ -112,6 +112,9 @@
       gdb
       gnumake
 
+      # Rust
+      rustup
+
       # Zig
       inputs.zig.packages.${system}.master
       zls
@@ -123,7 +126,9 @@
       # Node
       nodejs
       deno
-      rustup
+
+      # Java
+      jdk
 
       inputs.alejandra.defaultPackage.${system}
     ]
