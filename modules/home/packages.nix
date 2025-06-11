@@ -103,6 +103,7 @@
       qbittorrent-enhanced
       tor-browser
       android-studio
+      godot
       cabextract
       p7zip-rar
 
