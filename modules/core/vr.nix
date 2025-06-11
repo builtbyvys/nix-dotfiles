@@ -1,6 +1,8 @@
 {
+  nixpkgs.config.cudaSupport = true;
+
   services.wivrn = {
-    enable = false;
+    enable = true;
     openFirewall = true;
 
     # Write information to /etc/xdg/openxr/1/active_runtime.json, VR applications
