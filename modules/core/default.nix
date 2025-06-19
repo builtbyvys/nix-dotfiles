@@ -1,14 +1,14 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ./adb.nix
     ./bootloader.nix
     ./catppuccin.nix
-    ./flatpak.nix
+    #./openrgb-udev-rules.nix
     ./hardware.nix
-    ./kde.nix
+    ./xserver.nix
     ./network.nix
     ./nh.nix
-    #./openrgb-udev-rules.nix
     ./pipewire.nix
     ./program.nix
     ./security.nix
@@ -16,9 +16,9 @@
     ./steam.nix
     ./sunshine.nix
     ./system.nix
+    ./flatpak.nix
     ./user.nix
     ./virtualization.nix
     ./vr.nix
-    ./xserver.nix
   ];
 }
