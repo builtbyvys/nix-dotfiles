@@ -100,12 +100,14 @@
       streamlink
       avbroot
       scrcpy
-      qbittorrent-enhanced
+      qbittorrent
       tor-browser
       android-studio
       godot
       cabextract
       p7zip-rar
+
+      icu75
 
       # C / C++
       gcc
@@ -125,7 +127,7 @@
 
       # Node
       nodejs
-      deno
+      # deno
 
       # Java
       jdk
