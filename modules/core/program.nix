@@ -10,7 +10,7 @@
     };
     nix-ld = {
       enable = true;
-      libraries = with pkgs; [ ];
+      libraries = pkgs.steam-run.fhsenv.args.multiPkgs pkgs;
     };
   };
 }
