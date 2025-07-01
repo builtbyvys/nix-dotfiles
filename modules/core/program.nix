@@ -10,7 +10,13 @@
     };
     nix-ld = {
       enable = true;
-      libraries = pkgs.steam-run.fhsenv.args.multiPkgs pkgs;
+      libraries = with pkgs; [
+        alsa-lib
+        at-spi2-atk
+        at-spi2-core
+        atk
+        cairo
+      ];
     };
   };
 }

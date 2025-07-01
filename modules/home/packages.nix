@@ -57,7 +57,7 @@
       yt-dlp-light
       xdg-utils
       xxd
-      python313Packages.psutil
+      #python313Packages.psutil
 
       ## CLI
       cbonsai # terminal screensaver
@@ -120,8 +120,8 @@
       zls
 
       # Python
-      python3
-      python312Packages.ipython
+      #python3
+      #python312Packages.ipython
 
       # Node
       nodejs
