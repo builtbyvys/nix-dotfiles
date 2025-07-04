@@ -2,11 +2,12 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./../../modules/core
+    ../../modules/core
   ];
 
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+
   powerManagement.cpuFreqGovernor = "performance";
 
   boot.loader.systemd-boot.enable = lib.mkForce false;
@@ -16,4 +17,15 @@
   };
 
   environment.systemPackages = with pkgs; [ sbctl ];
+
+  # allow local remote access to toy around with the system
+  services.openssh = {
+    enable = true;
+    ports = [ 22 ];
+    settings = {
+      PasswordAuthentication = false;
+      PermitRootLogin = "no";
+      # allowUsers = [ "yamil" ];
+    };
+  };
 }
