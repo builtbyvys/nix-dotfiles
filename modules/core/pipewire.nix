@@ -6,7 +6,6 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    lowLatency.enable = true;
 
     # https://nixos.wiki/wiki/PipeWire#Low-latency_setup
     extraConfig.pipewire."92-low-latency" = {
