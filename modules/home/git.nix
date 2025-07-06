@@ -15,6 +15,21 @@
       commit.gpgSign = true;
       tag.gpgSign = true;
       user.signingKey = "39A4F0896DA2F2C0";
+
+      pull.rebase = false;
+      fetch.prune = true;
+      rerere.enabled = true;
+
+      diff.algorithm = "histogram";
+      diff.compactionHeuristic = true;
+
+      core.precomposeunicode = true;
+      core.quotepath = false;
+
+      blame.ignoreRevsFile = ".git-blame-ignore-revs";
+
+      branch.autosetupmerge = "always";
+      branch.autosetuprebase = "always";
     };
 
     delta = {
@@ -24,11 +39,34 @@
         side-by-side = true;
         diff-so-fancy = true;
         navigate = true;
+
+        hunk-header-style = "file line-number syntax";
       };
+    };
+
+    aliases = {
+      pr-diff = "diff HEAD~1";
+      pr-log = "log --oneline --decorate --graph -10";
+      pr-show = "show --stat --summary";
+
+      st = "status -sb";
+      br = "branch -v";
+
+      lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
+
+      filelog = "log -u";
+
+      find = "log --grep";
+
+      changes = "diff-tree --no-commit-id --name-only -r";
+
+      undo = "reset --soft HEAD~1";
+
+      cleanup = "!git branch --merged | grep -v '\\*\\|main\\|master' | xargs -n 1 git branch -d";
     };
   };
 
-  home.packages = [ pkgs.gh ]; # pkgs.git-lfs
+  home.packages = with pkgs; [ gh ];
 
   programs.zsh.shellAliases = {
     g = "lazygit";
@@ -55,5 +93,14 @@
     glol = "git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'";
     glola = "git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --all";
     glols = "git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --stat";
+
+    pr = "gh pr";
+    prl = "gh pr list";
+    prv = "gh pr view";
+    prc = "gh pr checkout";
+    prd = "gh pr diff";
+    prr = "gh pr review";
+
+    spellcheck = "aspell check";
   };
 }
