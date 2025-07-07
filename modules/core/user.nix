@@ -34,8 +34,8 @@
       # Optionally customize rootless Docker daemon settings
       daemon.settings = {
         dns = [
-          "1.1.1.1"
-          "8.8.8.8"
+          "9.9.9.11"
+          "149.112.112.11"
         ];
         registry-mirrors = [ "https://mirror.gcr.io" ];
       };
@@ -50,6 +50,8 @@
       "wheel"
       "gamemode"
       "docker"
+      "audio"
+      "realtime"
     ];
     shell = pkgs.zsh;
   };

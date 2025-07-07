@@ -10,6 +10,11 @@
     fstrim.enable = true;
     blueman.enable = true;
 
+    udev.extraRules = ''
+      KERNEL=="hpet", GROUP="audio", MODE="0660"
+      KERNEL=="rtc0", GROUP="audio", MODE="0660"
+    '';
+
     # needed for GNOME services outside of GNOME Desktop
     dbus.packages = with pkgs; [
       gcr

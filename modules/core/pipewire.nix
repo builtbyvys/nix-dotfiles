@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   services.pulseaudio.enable = false;
   services.pipewire = {
@@ -7,31 +7,30 @@
     alsa.support32Bit = true;
     pulse.enable = true;
 
-    # https://nixos.wiki/wiki/PipeWire#Low-latency_setup
-    extraConfig.pipewire."92-low-latency" = {
+    extraConfig.pipewire."99lowlatency" = {
       context.properties = {
-        default.clock.rate = 48000;
-        default.clock.quantum = 32;
-        default.clock.min-quantum = 32;
-        default.clock.max-quantum = 32;
+        "default.clock.rate" = 48000;
+        "default.clock.quantum" = 64;
+        "default.clock.min-quantum" = 64;
+        "default.clock.max-quantum" = 64;
+        "default.clock.force-quantum" = 64;
       };
     };
 
-    extraConfig.pipewire-pulse."92-low-latency" = {
+    extraConfig.pipewire-pulse."99-lowlatency" = {
       context.modules = [
         {
           name = "libpipewire-module-protocol-pulse";
           args = {
-            pulse.min.req = "32/48000";
-            pulse.default.req = "32/48000";
-            pulse.max.req = "32/48000";
-            pulse.min.quantum = "32/48000";
-            pulse.max.quantum = "32/48000";
+            "pulse.min.req" = "64/48000";
+            "pulse.default.req" = "64/48000";
+            "pulse.max.req" = "64/48000";
+            "pulse.min.quantum" = "64/48000";
+            "pulse.max.quantum" = "64/48000";
           };
         }
       ];
       stream.properties = {
-        node.latency = "32/48000";
         resample.quality = 1;
       };
     };

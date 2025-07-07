@@ -20,6 +20,7 @@
   ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelParams = [ "threadirqs" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
