@@ -141,7 +141,7 @@
       nix-ld
       avbroot
       scrcpy
-      soundwireserver
+      auto-cpufreq
     ]
   );
 }
