@@ -118,8 +118,6 @@
       ttyper # cli typing test
       kdePackages.plasma-browser-integration
       swappy # snapshot editing tool
-
-      # GUI apps
       audacity
       bleachbit # cache cleaner
       filezilla
@@ -150,7 +148,6 @@
       avbroot
       scrcpy
       auto-cpufreq
-      passt
     ]
   );
 }

@@ -13,6 +13,7 @@
     win-virtio
     win-spice
     adwaita-icon-theme
+    passt
   ];
 
   # Manage the virtualisation services
@@ -28,4 +29,5 @@
     spiceUSBRedirection.enable = true;
   };
   services.spice-vdagentd.enable = true;
+  systemd.services.libvirtd.path = with pkgs; [ passt ];
 }
