@@ -98,7 +98,15 @@
       # multi-lang tools
       gtt # google translate TUI
       translate-shell # cli translator
-      (aspellWithDicts (dicts: with dicts; [en en-computers en-science es]))
+      (aspellWithDicts (
+        dicts:
+          with dicts; [
+            en
+            en-computers
+            en-science
+            es
+          ]
+      ))
 
       # fun stuff
       cbonsai # terminal screensaver
@@ -142,6 +150,7 @@
       avbroot
       scrcpy
       auto-cpufreq
+      passt
     ]
   );
 }
