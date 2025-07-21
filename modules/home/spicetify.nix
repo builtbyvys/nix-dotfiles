@@ -21,6 +21,6 @@ in
       shuffle # shuffle+ (special characters are sanitized out of extension names)
     ];
     theme = spicePkgs.themes.dribbblish;
-    colorScheme = "mocha";
+    colorScheme = "catppuccin-mocha";
   };
 }
