@@ -13,6 +13,8 @@
       "com.github.tchx84.Flatseal"
       "io.github.everestapi.Olympus"
       "org.vinegarhq.Sober"
+      "org.vinegarhq.Vinegar"
+      "com.cakewallet.CakeWallet"
     ];
     overrides = {
       global = {
