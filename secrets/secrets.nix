@@ -4,4 +4,5 @@ let
 in
 {
   "jellyfin.age".publicKeys = all;
+  "github_pat.age".publicKeys = all;
 }

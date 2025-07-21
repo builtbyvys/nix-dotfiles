@@ -2,9 +2,11 @@
   inputs,
   pkgs,
   ...
-}: {
+}:
+{
   home.packages = (
-    with pkgs; [
+    with pkgs;
+    [
       # sys & file mgmt.
       dconf-editor
       file # show file information
@@ -99,13 +101,12 @@
       gtt # google translate TUI
       translate-shell # cli translator
       (aspellWithDicts (
-        dicts:
-          with dicts; [
-            en
-            en-computers
-            en-science
-            es
-          ]
+        dicts: with dicts; [
+          en
+          en-computers
+          en-science
+          es
+        ]
       ))
 
       # fun stuff
@@ -133,7 +134,7 @@
       opentabletdriver
       jellyfin-mpv-shim
       qpwgraph
-      chatterino7
+      #chatterino7
       streamlink
       qbittorrent
       tor-browser

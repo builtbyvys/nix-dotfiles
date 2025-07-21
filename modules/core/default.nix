@@ -4,6 +4,7 @@
     ./adb.nix
     ./bootloader.nix
     ./catppuccin.nix
+    #./davinci.nix
     #./openrgb-udev-rules.nix
     ./hardware.nix
     ./xserver.nix

@@ -1,6 +1,14 @@
-{ pkgs, inputs, ... }:
 {
-  # imports = [ inputs.nix-gaming.nixosModules.default ];
+  pkgs,
+  inputs,
+  config,
+  ...
+}:
+{
+  imports = [
+    # inputs.nix-gaming.nixosModules.default
+    inputs.agenix.nixosModules.default
+  ];
   nix = {
     settings = {
       auto-optimise-store = true;
@@ -13,6 +21,10 @@
         "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
       ];
     };
+
+    extraOptions = ''
+      !include ${config.age.secrets.github_pat.path}
+    '';
   };
   nixpkgs = {
     overlays = [ inputs.nur.overlays.default ];
@@ -22,6 +34,8 @@
     wget
     git
   ];
+
+  age.secrets.github_pat.file = "${../../secrets/github_pat.age}";
 
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
