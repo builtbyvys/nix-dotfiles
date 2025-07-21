@@ -133,6 +133,7 @@
     # system tools & utils
     nix-prefetch-github
     nix-ld
+    deadnix
     avbroot
     scrcpy
     auto-cpufreq
