@@ -2,17 +2,17 @@
 with lib;
 let
   defaultApps = {
-    browser = [ "zen.desktop" ];
-    text = [ "org.gnome.TextEditor.desktop" ];
+    browser = [ "chrome.desktop" ];
+    text = [ "kwrite.desktop" ];
     image = [ "imv-dir.desktop" ];
     audio = [ "mpv.desktop" ];
     video = [ "mpv.desktop" ];
-    directory = [ "nemo.desktop" ];
-    office = [ "libreoffice.desktop" ];
-    pdf = [ "org.gnome.Evince.desktop" ];
-    terminal = [ "ghostty.desktop" ];
-    archive = [ "org.gnome.FileRoller.desktop" ];
-    discord = [ "webcord.desktop" ];
+    directory = [ "dolphin.desktop" ];
+    #office = [ "libreoffice.desktop" ];
+    #pdf = [ "org.gnome.Evince.desktop" ];
+    terminal = [ "kitty.desktop" ];
+    archive = [ "ark.desktop" ];
+    discord = [ "discord.desktop" ];
   };
 
   mimeMap = {
