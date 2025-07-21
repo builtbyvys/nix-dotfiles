@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   imports = [
     ./aseprite/aseprite.nix # pixel art editor
     ./audacious.nix # music player
@@ -21,7 +20,7 @@
     ./obsidian.nix
     ./p10k/p10k.nix
     ./packages.nix # other packages
-    ./retroarch.nix
+    #./retroarch.nix
     ./rofi.nix # launcher
     ./scripts/scripts.nix # personal scripts
     ./spicetify.nix # spotify client
