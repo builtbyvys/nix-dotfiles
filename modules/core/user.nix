@@ -7,6 +7,7 @@
 }:
 {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
+
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
@@ -22,24 +23,8 @@
       home.stateVersion = "24.05";
       programs.home-manager.enable = true;
     };
-  };
+    backupFileExtension = "bak";
 
-  virtualisation.docker = {
-    # Consider disabling the system wide Docker daemon
-    enable = false;
-
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-      # Optionally customize rootless Docker daemon settings
-      daemon.settings = {
-        dns = [
-          "9.9.9.11"
-          "149.112.112.11"
-        ];
-        registry-mirrors = [ "https://mirror.gcr.io" ];
-      };
-    };
   };
 
   users.users.${username} = {
@@ -49,12 +34,10 @@
       "networkmanager"
       "wheel"
       "gamemode"
-      "docker"
       "audio"
       "realtime"
     ];
     shell = pkgs.zsh;
   };
   nix.settings.allowed-users = [ "${username}" ];
-  programs.gamemode.enable = true;
 }

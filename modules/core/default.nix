@@ -5,6 +5,7 @@
     ./bootloader.nix
     ./catppuccin.nix
     #./davinci.nix
+    ./docker.nix
     #./openrgb-udev-rules.nix
     ./hardware.nix
     ./xserver.nix

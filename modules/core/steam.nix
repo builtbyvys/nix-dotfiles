@@ -19,6 +19,11 @@
         "--rt"
         "--expose-wayland"
       ];
+
+    };
+    gamemode = {
+      enable = true;
+      enableRenice = true;
     };
   };
 }
