@@ -24,6 +24,20 @@
     gamemode = {
       enable = true;
       enableRenice = true;
+      settings = {
+        general = {
+          renice = 10;
+        };
+        cpu = {
+          park_cores = "no";
+          pin_cores = "yes";
+        };
+
+        custom = {
+          start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
+          end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
+        };
+      };
     };
   };
 }
