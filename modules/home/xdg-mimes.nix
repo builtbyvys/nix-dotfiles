@@ -2,7 +2,7 @@
 with lib;
 let
   defaultApps = {
-    browser = [ "chrome.desktop" ];
+    browser = [ "google-chrome-unstable.desktop" ];
     text = [ "kwrite.desktop" ];
     image = [ "imv-dir.desktop" ];
     audio = [ "mpv.desktop" ];
