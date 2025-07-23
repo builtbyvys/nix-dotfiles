@@ -20,4 +20,12 @@
 
     supportedFilesystems = [ "ntfs" ];
   };
+  fileSystems."/dev/sdb2" = {
+    device = "/dev/sdb2";
+    fsType = "ntfs-3g";
+    options = [
+      "rw"
+      "uid=1000"
+    ];
+  };
 }
