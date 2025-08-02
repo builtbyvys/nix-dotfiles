@@ -33,6 +33,7 @@
   environment.systemPackages = with pkgs; [
     wget
     git
+    nvidia-vaapi-driver
   ];
 
   age.secrets.github_pat.file = "${../../secrets/github_pat.age}";

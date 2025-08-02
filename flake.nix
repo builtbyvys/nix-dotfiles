@@ -60,7 +60,6 @@
       system = "x86_64-linux";
     in
     {
-      # NixOS configurations for different machines
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           inherit system;

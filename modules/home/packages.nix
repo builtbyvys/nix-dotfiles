@@ -105,7 +105,6 @@
     ttyper # cli typing test
     kdePackages.plasma-browser-integration
     swappy # snapshot editing tool
-    audacity
     bleachbit # cache cleaner
     filezilla
     gimp

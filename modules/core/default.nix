@@ -21,6 +21,6 @@
     ./flatpak.nix
     ./user.nix
     ./virtualization.nix
-    ./vr.nix
+    #./vr.nix
   ];
 }
